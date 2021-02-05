@@ -7,16 +7,14 @@ using System.Threading.Tasks;
 
 namespace Room11Note.Models
 {
-    public class NoteDetail
+    public class PostDetail
     {
-        public int NoteId { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
+        public int PostId { get; set; }
+        public string PostTitle { get; set; }
+        public string Text { get; set; }
 
-        [Display(Name = "Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
+        public virtual List<string> Comments { get; set; }
 
-        [Display(Name = "Modified")]
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        public Guid Author { get; set; }
     }
 }

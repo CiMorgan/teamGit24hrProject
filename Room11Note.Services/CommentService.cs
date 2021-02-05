@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Room11Note.Services
 {
-    public class NoteService
+    public class PostService
     {
         private readonly Guid _userId;
 
-        public NoteService(Guid userId)
+        public PostService(Guid userId)
         {
             _userId = userId;
         }
