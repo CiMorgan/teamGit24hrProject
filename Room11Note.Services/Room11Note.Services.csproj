@@ -54,7 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NoteService.cs" />
+    <Compile Include="CommentService.cs" />
+    <Compile Include="PostService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

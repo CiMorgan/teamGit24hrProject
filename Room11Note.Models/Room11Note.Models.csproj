@@ -54,15 +54,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NoteCreate.cs" />
-    <Compile Include="NoteDetail.cs" />
-    <Compile Include="NoteEdit.cs" />
-    <Compile Include="NoteListItem.cs" />
+    <Compile Include="Comment\CommentCreate.cs" />
+    <Compile Include="Comment\CommentDetail.cs" />
+    <Compile Include="Comment\CommentEdit.cs" />
+    <Compile Include="Comment\CommentListItem.cs" />
+    <Compile Include="Post\PostCreate.cs" />
+    <Compile Include="Post\PostDetail.cs" />
+    <Compile Include="Post\PostEdit.cs" />
+    <Compile Include="Post\PostListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

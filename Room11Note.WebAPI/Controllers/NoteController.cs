@@ -15,14 +15,14 @@ namespace Room11Note.WebAPI.Controllers
     {
         public IHttpActionResult Get()
         {
-            NoteService noteService = CreateNoteService();
+            PostService noteService = CreateNoteService();
             var notes = noteService.GetNotes();
             return Ok(notes);
         }
 
         public IHttpActionResult Get(int id)
         {
-            NoteService noteService = CreateNoteService();
+            PostService noteService = CreateNoteService();
             var note = noteService.GetNoteById(id);
             return Ok(note);
         }
@@ -39,10 +39,10 @@ namespace Room11Note.WebAPI.Controllers
 
             return Ok();
         }
-        private NoteService CreateNoteService()
+        private PostService CreateNoteService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var noteService = new NoteService(userId);
+            var noteService = new PostService(userId);
             return noteService;
         }
 
