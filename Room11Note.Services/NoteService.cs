@@ -14,7 +14,7 @@ namespace Room11Note.Services
 
         public NoteService(Guid userId)
         {
-            _userId = userId;
+            _userId = userId;  //asdfasf
         }
 
         public bool CreateNote(NoteCreate model)
