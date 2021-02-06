@@ -33,7 +33,8 @@ namespace Room11Note.Data
             return new ApplicationDbContext();
         }
 
-        public DbSet<Note> Notes { get; set; }
+        public DbSet<Post> Post { get; set; }
+        public DbSet<Comment> Comment { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

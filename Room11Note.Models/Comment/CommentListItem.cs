@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Room11Note.Models
 {
-    public class NoteListItem
+    public class CommentListItem
     {
-        public int NoteId { get; set; }
+        public int CommentId { get; set; }
         public string Title { get; set; }
 
         [Display(Name = "Created")]

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Room11Note.Models
 {
-    public class NoteEdit
+    public class PostEdit
     {
-        public int NoteId { get; set; }
+        public int PostId { get; set; }
         public string Title { get; set; }
-        public string Content { get; set; }
+        public string Text { get; set; }
     }
 }

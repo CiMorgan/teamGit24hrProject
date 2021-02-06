@@ -123,3 +123,7 @@ C:\ElevenFiftyProjects\Blue\Room11Note\Room11Note.WebAPI\bin\Microsoft.CodeDom.P
 C:\ElevenFiftyProjects\Blue\Room11Note\Room11Note.WebAPI\obj\Debug\Room11Note.WebAPI.csproj.CopyComplete
 C:\ElevenFiftyProjects\Blue\Room11Note\Room11Note.WebAPI\obj\Debug\Room11Note.WebAPI.dll
 C:\ElevenFiftyProjects\Blue\Room11Note\Room11Note.WebAPI\obj\Debug\Room11Note.WebAPI.pdb
+C:\ElevenFiftyProjects\teamGit24hrProject\Room11Note.WebAPI\obj\Debug\Room11Note.WebAPI.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\teamGit24hrProject\Room11Note.WebAPI\obj\Debug\Room11Note.WebAPI.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\teamGit24hrProject\Room11Note.WebAPI\obj\Debug\Room11Note.WebAPI.dll
+C:\ElevenFiftyProjects\teamGit24hrProject\Room11Note.WebAPI\obj\Debug\Room11Note.WebAPI.pdb

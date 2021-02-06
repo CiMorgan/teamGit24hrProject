@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Room11Note.Data
 {
-    public class Note
+    public class Comment
     {
         [Key]
-        public int NoteId { get; set; }
+        public int CommentId { get; set; }
 
         [Required]
         public Guid OwnerId { get; set; }
@@ -19,7 +19,7 @@ namespace Room11Note.Data
         public string Title { get; set; }
 
         [Required]
-        public string Content { get; set; }
+        public string Text { get; set; }
         
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }

@@ -1,0 +1,72 @@
+﻿using Microsoft.AspNet.Identity;
+using Room11Note.Models;
+using Room11Note.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+
+namespace Room11Note.WebAPI.Controllers
+{
+    [Authorize]
+    public class CommentController : ApiController
+    {
+        public IHttpActionResult Get()
+        {
+            PostService noteService = CreateNoteService();
+            var notes = noteService.GetPost();
+            return Ok(notes);
+        }
+
+        public IHttpActionResult Get(int id)
+        {
+            PostService noteService = CreateNoteService();
+            var note = noteService.GetNoteById(id);
+            return Ok(note);
+        }
+
+        public IHttpActionResult Post(CommentCreate note)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateNoteService();
+
+            if (!service.CreateNote(note))
+                return InternalServerError();
+
+            return Ok();
+        }
+        private PostService CreateNoteService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var noteService = new PostService(userId);
+            return noteService;
+        }
+
+        public IHttpActionResult Put(NoteEdit note)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateNoteService();
+
+            if (!service.UpdateNote(note))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateNoteService();
+
+            if (!service.DeleteNote(id))
+                return InternalServerError();
+
+            return Ok();
+        }
+    }
+}

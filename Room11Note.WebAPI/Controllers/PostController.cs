@@ -11,7 +11,7 @@ using System.Web.Http;
 namespace Room11Note.WebAPI.Controllers
 {
     [Authorize]
-    public class NoteController : ApiController
+    public class PostController : ApiController
     {
         public IHttpActionResult Get()
         {
@@ -27,7 +27,7 @@ namespace Room11Note.WebAPI.Controllers
             return Ok(note);
         }
 
-        public IHttpActionResult Post(NoteCreate note)
+        public IHttpActionResult Post(CommentCreate note)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

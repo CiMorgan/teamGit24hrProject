@@ -20,3 +20,7 @@ C:\ElevenFiftyProjects\Blue\Room11Note\Room11Note.Services\bin\Debug\Room11Note.
 C:\ElevenFiftyProjects\Blue\Room11Note\Room11Note.Services\bin\Debug\Room11Note.Data.dll.config
 C:\ElevenFiftyProjects\Blue\Room11Note\Room11Note.Services\bin\Debug\Room11Note.Models.pdb
 C:\ElevenFiftyProjects\Blue\Room11Note\Room11Note.Services\bin\Debug\Room11Note.Models.dll.config
+C:\ElevenFiftyProjects\teamGit24hrProject\Room11Note.Services\obj\Debug\Room11Note.Services.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\teamGit24hrProject\Room11Note.Services\obj\Debug\Room11Note.Services.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\teamGit24hrProject\Room11Note.Services\obj\Debug\Room11Note.Services.dll
+C:\ElevenFiftyProjects\teamGit24hrProject\Room11Note.Services\obj\Debug\Room11Note.Services.pdb

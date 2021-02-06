@@ -14,3 +14,7 @@ C:\ElevenFiftyProjects\Blue\Room11Note\Room11Note.Models\obj\Debug\Room11Note.Mo
 C:\ElevenFiftyProjects\Blue\Room11Note\Room11Note.Models\obj\Debug\Room11Note.Models.csproj.CopyComplete
 C:\ElevenFiftyProjects\Blue\Room11Note\Room11Note.Models\obj\Debug\Room11Note.Models.dll
 C:\ElevenFiftyProjects\Blue\Room11Note\Room11Note.Models\obj\Debug\Room11Note.Models.pdb
+C:\ElevenFiftyProjects\teamGit24hrProject\Room11Note.Models\obj\Debug\Room11Note.Models.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\teamGit24hrProject\Room11Note.Models\obj\Debug\Room11Note.Models.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\teamGit24hrProject\Room11Note.Models\obj\Debug\Room11Note.Models.dll
+C:\ElevenFiftyProjects\teamGit24hrProject\Room11Note.Models\obj\Debug\Room11Note.Models.pdb

@@ -8,46 +8,46 @@ using System.Threading.Tasks;
 
 namespace Room11Note.Services
 {
-    public class PostService
+    public class CommentService
     {
-        private readonly Guid _userId;
+        private readonly Guid _userCommentId;
 
-        public PostService(Guid userId)
+        public CommentService(Guid userId)
         {
-            _userId = userId;
+            _userCommentId = userId;
         }
 
-        public bool CreateNote(NoteCreate model)
+        public bool CreateComment(CommentCreate model)
         {
             var entity =
-                new Note()
+                new Comment()
                 {
-                    OwnerId = _userId,
+                    OwnerId = _userCommentId,
                     Title = model.Title,
-                    Content = model.Content,
+                    Text = model.Text,
                     CreatedUtc = DateTimeOffset.Now
                 };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Notes.Add(entity);
+                ctx.Comment.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public IEnumerable<NoteListItem> GetNotes()
+        public IEnumerable<CommentListItem> GetComment()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .Notes
-                        .Where(e => e.OwnerId == _userId)
+                        .Comment
+                        .Where(e => e.OwnerId == _userCommentId)
                         .Select(
                             e =>
-                                new NoteListItem
+                                new CommentListItem
                                 {
-                                    NoteId = e.NoteId,
+                                    CommentId = e.CommentId,
                                     Title = e.Title,
                                     CreatedUtc = e.CreatedUtc
                                 }
@@ -56,52 +56,50 @@ namespace Room11Note.Services
                 return query.ToArray();
             }
         }
-        public NoteDetail GetNoteById(int id)
+        public CommentDetail GetCommentById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Notes
-                        .Single(e => e.NoteId == id && e.OwnerId == _userId);
+                        .Comment
+                        .Single(e => e.CommentId == id && e.OwnerId == _userCommentId);
                 return
-                    new NoteDetail
+                    new CommentDetail
                     {
-                        NoteId = entity.NoteId,
+                        CommentId = entity.CommentId,
                         Title = entity.Title,
-                        Content = entity.Content,
-                        CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
+                        Text = entity.Text             
                     };
             }
         }
 
-        public bool UpdateNote(NoteEdit model)
+        public bool UpdateComment(CommentEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Notes
-                        .Single(e => e.NoteId == model.NoteId && e.OwnerId == _userId);
+                        .Comment
+                        .Single(e => e.CommentId == model.CommentId && e.OwnerId == _userCommentId);
 
                 entity.Title = model.Title;
-                entity.Content = model.Content;
+                entity.Text = model.Text;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
         }
-        public bool DeleteNote(int noteId)
+        public bool DeleteComment(int noteId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Notes
-                        .Single(e => e.NoteId == noteId && e.OwnerId == _userId);
+                        .Comment 
+                        .Single(e => e.CommentId == noteId && e.OwnerId == _userCommentId);
 
-                ctx.Notes.Remove(entity);
+                ctx.Comment.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

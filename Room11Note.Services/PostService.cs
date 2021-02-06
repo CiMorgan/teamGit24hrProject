@@ -10,44 +10,44 @@ namespace Room11Note.Services
 {
     public class PostService
     {
-        private readonly Guid _userId;
+        private readonly Guid _userPostId;
 
         public PostService(Guid userId)
         {
-            _userId = userId;
+            _userPostId = userId;
         }
 
-        public bool CreateNote(NoteCreate model)
+        public bool CreatePost(PostCreate model)
         {
             var entity =
-                new Note()
+                new Post()
                 {
-                    OwnerId = _userId,
+                    OwnerId = _userPostId,
                     Title = model.Title,
-                    Content = model.Content,
+                    Text = model.Text,
                     CreatedUtc = DateTimeOffset.Now
                 };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Notes.Add(entity);
+                ctx.Post.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public IEnumerable<NoteListItem> GetNotes()
+        public IEnumerable<PostListItem> GetPost()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .Notes
-                        .Where(e => e.OwnerId == _userId)
+                        .Post
+                        .Where(e => e.OwnerId == _userPostId)
                         .Select(
                             e =>
-                                new NoteListItem
+                                new PostListItem
                                 {
-                                    NoteId = e.NoteId,
+                                    PostId = e.PostId,
                                     Title = e.Title,
                                     CreatedUtc = e.CreatedUtc
                                 }
@@ -56,52 +56,50 @@ namespace Room11Note.Services
                 return query.ToArray();
             }
         }
-        public NoteDetail GetNoteById(int id)
+        public PostDetail GetPostById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Notes
-                        .Single(e => e.NoteId == id && e.OwnerId == _userId);
+                        .Post
+                        .Single(e => e.PostId == id && e.OwnerId == _userPostId);
                 return
-                    new NoteDetail
+                    new PostDetail
                     {
-                        NoteId = entity.NoteId,
+                        PostId = entity.PostId,
                         Title = entity.Title,
-                        Content = entity.Content,
-                        CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
+                        Text = entity.Text
                     };
             }
         }
 
-        public bool UpdateNote(NoteEdit model)
+        public bool UpdatePost(PostEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Notes
-                        .Single(e => e.NoteId == model.NoteId && e.OwnerId == _userId);
+                        .Post
+                        .Single(e => e.PostId == model.PostId && e.OwnerId == _userPostId);
 
                 entity.Title = model.Title;
-                entity.Content = model.Content;
+                entity.Text = model.Text;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
         }
-        public bool DeleteNote(int noteId)
+        public bool DeletePost(int noteId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Notes
-                        .Single(e => e.NoteId == noteId && e.OwnerId == _userId);
+                        .Post
+                        .Single(e => e.PostId == noteId && e.OwnerId == _userPostId);
 
-                ctx.Notes.Remove(entity);
+                ctx.Post.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
